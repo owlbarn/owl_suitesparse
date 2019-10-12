@@ -1,0 +1,20 @@
+opam-version: "2.0"
+maintainer: "Liang Wang <ryanrhymes@gmail.com>"
+authors: [ "Liang Wang" ]
+license: "MIT"
+homepage: "https://github.com/ryanrhymes/owl_suitesparse"
+dev-repo: "git+https://github.com/ryanrhymes/owl_suitesparse.git"
+bug-reports: "https://github.com/ryanrhymes/owl_suitesparse/issues"
+doc: "https://owlbarn.github.io/"
+synopsis: "OCaml Scientific and Engineering Computing - SuiteSparse"
+description: "Owl is an OCaml scientific library."
+
+build: [
+  [ "dune" "subst" ] {pinned}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "dune" {build}
+]

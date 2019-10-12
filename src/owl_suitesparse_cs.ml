@@ -33,8 +33,16 @@ let cs_dl_print ~x ~belief =
   Owl_suitesparse_exception.fail_on_nonzero result "cs_dl_print"
 
 
-let cs_dl_add ~x ~y ~alpha ~beta = 
-  Owl_suitesparse_ffi.CS.cs_dl_add x y alpha beta
+let cs_dl_compress x =
+  let y = Owl_suitesparse_ffi.CS.cs_dl_compress x in
+  Gc.finalise cs_dl_spfree y;
+  y
+
+
+let cs_dl_add ~x ~y ~alpha ~beta =
+  let z = Owl_suitesparse_ffi.CS.cs_dl_add x y alpha beta in
+  Gc.finalise cs_dl_spfree z;
+  z
 
 
 let cs_dl_dupl ~x = 

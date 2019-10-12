@@ -5,4 +5,15 @@
  (modes byte)
  (flags
   (:standard -safe-string))
- (libraries ))
+ (libraries ctypes))
+
+(rule
+ (targets ffi_suitesparse_generated.ml)
+ (deps ../bindings/ffi_suitesparse_stubgen.exe)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run %{deps} -ml)
+  )
+ )
+)

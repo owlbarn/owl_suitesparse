@@ -7,21 +7,21 @@ module Make (F : Cstubs.FOREIGN) = struct
 
     (** type definition *)
 
-    type cs_di
-    let cs_di : cs_di structure typ = structure "cs_di_sparse"
+    type cs_dl
+    let cs_dl : cs_dl structure typ = structure "cs_dl_sparse"
 
 
     (** core functions *)
 
-    let cs_di_entry = foreign "cs_di_entry" (ptr cs_di @-> int @-> int @-> double @-> returning int)
+    let cs_dl_entry = foreign "cs_dl_entry" (ptr cs_dl @-> int64_t @-> int64_t @-> double @-> returning int64_t)
 
-    let cs_di_print = foreign "cs_di_print" (ptr cs_di @-> int @-> returning int)
+    let cs_dl_print = foreign "cs_dl_print" (ptr cs_dl @-> int64_t @-> returning int64_t)
 
 
     (** utility functions *)
 
-    let cs_di_spalloc = foreign "cs_di_spalloc" (int @-> int @-> int @-> int @-> int @-> returning (ptr cs_di))
+    let cs_dl_spalloc = foreign "cs_dl_spalloc" (int64_t @-> int64_t @-> int64_t @-> int64_t @-> int64_t @-> returning (ptr cs_dl))
 
-    let cs_di_spfree = foreign "cs_di_spfree" (ptr cs_di @-> returning (ptr cs_di))
+    let cs_dl_spfree = foreign "cs_dl_spfree" (ptr cs_dl @-> returning (ptr cs_dl))
 
 end

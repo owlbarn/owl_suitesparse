@@ -1,0 +1,13 @@
+lib: [
+  "_build/install/default/lib/owl-suitesparse/META"
+  "_build/install/default/lib/owl-suitesparse/dune-package"
+  "_build/install/default/lib/owl-suitesparse/opam"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cma"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cmi"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cmt"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse.ml"
+]
+doc: [
+  "_build/install/default/doc/owl-suitesparse/LICENSE"
+  "_build/install/default/doc/owl-suitesparse/README.md"
+]

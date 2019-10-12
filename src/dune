@@ -1,4 +1,5 @@
 (copy_files# ../bindings/include/*)
+(copy_files# ../bindings/ffi_suitesparse_bindings*)
 
 (library
  (name owl_suitesparse)

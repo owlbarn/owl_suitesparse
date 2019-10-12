@@ -1,0 +1,8 @@
+(library
+ (name owl_suitesparse)
+ (public_name owl-suitesparse)
+ (wrapped false)
+ (modes byte)
+ (flags
+  (:standard -safe-string))
+ (libraries ))

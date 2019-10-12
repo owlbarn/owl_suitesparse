@@ -1,0 +1,4 @@
+(executable
+ (name ffi_suitesparse_stubgen)
+ (libraries ctypes.stubs)
+)

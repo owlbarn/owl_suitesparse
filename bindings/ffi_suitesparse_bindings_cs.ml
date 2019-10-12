@@ -21,7 +21,7 @@ module Make (F : Cstubs.FOREIGN) = struct
     let cs_dld : cs_dl structure typ = structure "cs_dl_dmperm_results"
   
 
-    (** core functions: primary *)
+    (** core functions *)
 
     let cs_dl_add = foreign "cs_dl_add" (ptr cs_dl @-> ptr cs_dl @-> double @-> double @-> returning (ptr cs_dl))
 
@@ -48,10 +48,6 @@ module Make (F : Cstubs.FOREIGN) = struct
     let cs_dl_print = foreign "cs_dl_print" (ptr cs_dl @-> int64_t @-> returning int64_t)
 
     (* let cs_dl_load = foreign "cs_dl_load" (ptr file @-> returning (ptr cs_dl)) *)
-
-
-    (** core functions: secondary *)
-
 
 
 

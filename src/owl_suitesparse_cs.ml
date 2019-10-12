@@ -34,4 +34,10 @@ let cs_dl_print ~x ~belief =
 
 
 let cs_dl_add ~x ~y ~alpha ~beta = 
-  Owl_suitesparse_ffi.CS.cs_dl_add x i alpha beta
+  Owl_suitesparse_ffi.CS.cs_dl_add x y alpha beta
+
+
+let cs_dl_dupl ~x = 
+  let result = Owl_suitesparse_ffi.CS.cs_dl_dupl x in
+  let result = Int64.to_int result in
+  Owl_suitesparse_exception.fail_on_nonzero result "cs_dl_dupl"

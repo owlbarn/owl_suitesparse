@@ -13,6 +13,8 @@ module Make (F : Cstubs.FOREIGN) = struct
 
     (** core functions *)
 
+    let cs_di_entry = foreign "cs_di_entry" (ptr cs_di @-> int @-> int @-> double @-> returning int)
+
     let cs_di_print = foreign "cs_di_print" (ptr cs_di @-> int @-> returning int)
 
 

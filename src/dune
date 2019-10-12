@@ -5,9 +5,13 @@
  (name owl_suitesparse)
  (public_name owl-suitesparse)
  (wrapped false)
- (flags
-  (:standard -safe-string))
+ (flags (:standard -safe-string))
  (c_names ffi_suitesparse_generated_stub)
+ (c_flags :standard)
+ (c_library_flags 
+  :standard
+  -lcxsparse
+  )
  (libraries ctypes))
 
 (rule

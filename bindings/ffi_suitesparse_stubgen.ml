@@ -14,7 +14,6 @@ let _ =
     Cstubs.write_ml Format.std_formatter ~prefix (module Ffi_suitesparse_bindings.Bindings)
   | false, true ->
     print_endline "#include <stdint.h>";
-    print_endline "#include \"eigen_dsmat.h\"";
-    print_endline "#include \"eigen_spmat.h\"";
-    print_endline "#include \"eigen_tensor.h\"";
+    print_endline "#include \"camd.h\"";
+    print_endline "#include \"cs.h\"";
     Cstubs.write_c Format.std_formatter ~prefix (module Ffi_suitesparse_bindings.Bindings)

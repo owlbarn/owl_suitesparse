@@ -1,10 +1,13 @@
+(copy_files# ../bindings/include/*)
+
 (library
  (name owl_suitesparse)
  (public_name owl-suitesparse)
  (wrapped false)
- (modes byte)
+ (modes best)
  (flags
   (:standard -safe-string))
+ (c_names ffi_suitesparse_generated_stub)
  (libraries ctypes))
 
 (rule
@@ -14,6 +17,17 @@
   (with-stdout-to
    %{targets}
    (run %{deps} -ml)
+  )
+ )
+)
+
+(rule
+ (targets ffi_suitesparse_generated_stub.c)
+ (deps ../bindings/ffi_suitesparse_stubgen.exe)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run %{deps} -c)
   )
  )
 )

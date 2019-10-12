@@ -5,7 +5,6 @@
  (name owl_suitesparse)
  (public_name owl-suitesparse)
  (wrapped false)
- (modes best)
  (flags
   (:standard -safe-string))
  (c_names ffi_suitesparse_generated_stub)

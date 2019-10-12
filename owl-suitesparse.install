@@ -20,12 +20,17 @@ lib: [
   "_build/install/default/lib/owl-suitesparse/libowl_suitesparse_stubs.a"
   "_build/install/default/lib/owl-suitesparse/opam"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse.a"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cma"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cmi"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cmt"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cmx"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cmxa"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse.cmxs"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse.ml"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse_camd.cmi"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse_camd.cmt"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse_camd.cmx"
+  "_build/install/default/lib/owl-suitesparse/owl_suitesparse_camd.ml"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse_cs.cmi"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse_cs.cmt"
   "_build/install/default/lib/owl-suitesparse/owl_suitesparse_cs.cmx"
@@ -38,4 +43,7 @@ lib: [
 doc: [
   "_build/install/default/doc/owl-suitesparse/LICENSE"
   "_build/install/default/doc/owl-suitesparse/README.md"
+]
+stublibs: [
+  "_build/install/default/lib/stublibs/dllowl_suitesparse_stubs.so"
 ]

@@ -25,6 +25,10 @@ install: build
 uninstall:
 	dune uninstall
 
+.PHONY: cleanall
+cleanall: uninstall
+	dune clean
+
 .PHONY: doc
 doc:
 	opam install -y odoc

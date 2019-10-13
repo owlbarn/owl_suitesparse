@@ -6,10 +6,16 @@
  * SuiteSparse Copyright (c) by Timothy A. Davis.
  *)
 
+ 
+open Ctypes
 
-let version = "5.4.0"
+
+module Make (F : Cstubs.FOREIGN) = struct
+
+  
+    type c_dsmat_s
+    let c_dsmat_s : c_dsmat_s structure typ = structure "c_dsmat_s"
+    let elt = float
 
 
-module CS = Owl_suitesparse_cs
-
-module UMFPACK = Owl_suitesparse_umfpack
+end

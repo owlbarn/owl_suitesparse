@@ -6,7 +6,7 @@
  * SuiteSparse Copyright (c) by Timothy A. Davis.
  *)
 
- 
+
 let _ =
   let prefix = "owl_stub" in
   let generate_ml, generate_c = ref false, ref false in
@@ -22,6 +22,6 @@ let _ =
     Cstubs.write_ml Format.std_formatter ~prefix (module Ffi_suitesparse_bindings.Bindings)
   | false, true ->
     print_endline "#include <stdint.h>";
-    print_endline "#include \"camd.h\"";
     print_endline "#include \"cs.h\"";
+    print_endline "#include \"umfpack.h\"";
     Cstubs.write_c Format.std_formatter ~prefix (module Ffi_suitesparse_bindings.Bindings)

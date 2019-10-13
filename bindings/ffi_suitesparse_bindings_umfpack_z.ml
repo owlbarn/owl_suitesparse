@@ -6,16 +6,16 @@
  * SuiteSparse Copyright (c) by Timothy A. Davis.
  *)
 
- 
+
 open Ctypes
 
 
 module Make (F : Cstubs.FOREIGN) = struct
 
-  
-    type c_dsmat_s
-    let c_dsmat_s : c_dsmat_s structure typ = structure "c_dsmat_s"
-    let elt = float
+  open F
 
+  (** core functions - complex *)
+
+  let umfpack_zl_numeric = foreign "umfpack_zl_numeric" (ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr void @-> ptr (ptr void) @-> ptr double @-> ptr double @-> returning int)
 
 end

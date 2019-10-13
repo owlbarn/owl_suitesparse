@@ -97,8 +97,7 @@ module Make (F : Cstubs.FOREIGN) = struct
 
     let cs_dl_etree = foreign "cs_dl_etree" (ptr cs_dl @-> int64_t @-> returning (ptr int64_t))
 
-    let fkeep_func_ptr = funptr (int64_t @-> int64_t @-> double @-> ptr void @-> returning (ptr int64_t))
-    (* let cs_dl_fkeep = foreign "cs_dl_fkeep" (ptr cs_dl @-> ptr int64_t @-> ptr int64_t @-> int64_t @-> returning int64_t) *)
+    let cs_dl_fkeep = foreign "cs_dl_fkeep" (ptr cs_dl @-> ptr void @-> ptr void @-> returning int64_t)
 
     let cs_dl_house = foreign "cs_dl_house" (ptr double @-> ptr double @-> int64_t @-> returning double)
 

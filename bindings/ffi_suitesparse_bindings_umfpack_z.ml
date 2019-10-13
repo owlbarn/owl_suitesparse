@@ -26,4 +26,12 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let umfpack_zl_free_symbolic = foreign "umfpack_zl_free_symbolic" (ptr (ptr void) @-> returning void)
 
+  let umfpack_zl_defaults = foreign "umfpack_zl_defaults" (ptr double @-> returning void)
+
+  let umfpack_zl_qsymbolic = foreign "umfpack_zl_qsymbolic" (int64_t @-> int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr int64_t @-> ptr void @-> ptr double @-> ptr double @-> returning int64_t)
+  
+  let umfpack_zl_fsymbolic = foreign "umfpack_zl_fsymbolic" (int64_t @-> int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr void @-> ptr void @-> ptr void @-> ptr double @-> ptr double @-> returning int64_t)
+  
+  let umfpack_zl_wsolve = foreign "umfpack_zl_wsolve" (int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr double @-> ptr double @-> ptr double @-> ptr double @-> ptr void @-> ptr double @-> ptr double @-> ptr int64_t @-> ptr double @-> returning int64_t)
+
 end

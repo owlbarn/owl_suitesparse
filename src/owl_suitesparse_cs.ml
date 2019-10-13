@@ -80,3 +80,10 @@ let cs_dl_qrsol ~order ~a =
   let result = Int64.to_int result in
   Owl_suitesparse_exception.fail_on_nonzero result "cs_dl_qrsol";
   Ctypes.(!@b_ptr)
+
+(*
+let cs_dl_gaxpy ~a ~b =
+  let c = Owl_suitesparse_ffi.CS.cs_dl_multiply a b in
+  Gc.finalise cs_dl_spfree c;
+  c
+*)

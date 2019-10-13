@@ -49,6 +49,45 @@ module Make (F : Cstubs.FOREIGN) = struct
 
     (* let cs_dl_load = foreign "cs_dl_load" (ptr file @-> returning (ptr cs_dl)) *)
 
+    let cs_dl_amd = foreign "cs_dl_amd" (int64_t @-> ptr cs_dl @-> returning (ptr int64_t))
+
+    let cs_dl_chol = foreign "cs_dl_chol" (ptr cs_dl @-> ptr cs_dls @-> returning (ptr cs_dln))
+
+    let cs_dl_dmperm = foreign "cs_dl_dmperm" (ptr cs_dl @-> int64_t @-> returning (ptr cs_dld))
+
+    let cs_dl_droptol = foreign "cs_dl_droptol" (ptr cs_dl @-> double @-> returning int64_t)
+
+    let cs_dl_dropzeros = foreign "cs_dl_dropzeros" (ptr cs_dl @-> returning int64_t)
+
+    let cs_dl_happly = foreign "cs_dl_happly" (ptr cs_dl @-> int64_t @-> double @-> ptr double @-> returning int64_t)
+
+    let cs_dl_ipvec = foreign "cs_dl_ipvec" (ptr int64_t @-> ptr double @-> ptr double @-> int64_t @-> returning int64_t)
+
+    let cs_dl_lsolve = foreign "cs_dl_lsolve" (ptr cs_dl @-> ptr double @-> returning int64_t)
+
+    let cs_dl_ltsolve = foreign "cs_dl_ltsolve" (ptr cs_dl @-> ptr double @-> returning int64_t)
+
+    let cs_dl_lu = foreign "cs_dl_lu" (ptr cs_dl @-> ptr cs_dls @-> double @-> returning (ptr cs_dln))
+
+    let cs_dl_permute = foreign "cs_dl_permute" (ptr cs_dl @-> ptr int64_t @-> ptr int64_t @-> int64_t @-> returning (ptr cs_dl))
+
+    let cs_dl_pinv = foreign "cs_dl_pinv" (ptr int64_t @-> int64_t @-> returning (ptr int64_t))
+
+    let cs_dl_pvec = foreign "cs_dl_pvec" (ptr int64_t @-> ptr double @-> ptr double @-> int64_t @-> returning int64_t)
+
+    let cs_dl_qr = foreign "cs_dl_qr" (ptr cs_dl @-> ptr cs_dls @-> returning (ptr cs_dln))
+
+    let cs_dl_schol = foreign "cs_dl_schol" (int64_t @-> ptr cs_dl @-> returning (ptr cs_dls))
+
+    let cs_dl_sqr = foreign "cs_dl_sqr" (int64_t @-> ptr cs_dl @-> int64_t @-> returning (ptr cs_dls))
+
+    let cs_dl_symperm = foreign "cs_dl_symperm" (ptr cs_dl @-> ptr int64_t @-> int64_t @-> returning (ptr cs_dl))
+
+    let cs_dl_usolve = foreign "cs_dl_usolve" (ptr cs_dl @-> ptr double @-> returning int64_t)
+
+    let cs_dl_utsolve = foreign "cs_dl_utsolve" (ptr cs_dl @-> ptr double @-> returning int64_t)
+
+    let cs_dl_updown = foreign "cs_dl_updown" (ptr cs_dl @-> int64_t @-> ptr cs_dl @-> ptr int64_t @-> returning int64_t)
 
 
     (** utility functions *)

@@ -1,3 +1,4 @@
+
 open Ctypes
 
 
@@ -7,6 +8,8 @@ module Make (F : Cstubs.FOREIGN) = struct
 
     (** type definition *)
 
+    type file
+    let file : file structure typ = structure "_IO_FILE"
 
     type cs_dl
     let cs_dl : cs_dl structure typ = structure "cs_dl_sparse"
@@ -47,7 +50,7 @@ module Make (F : Cstubs.FOREIGN) = struct
 
     let cs_dl_print = foreign "cs_dl_print" (ptr cs_dl @-> int64_t @-> returning int64_t)
 
-    (* let cs_dl_load = foreign "cs_dl_load" (ptr FILE @-> returning (ptr cs_dl)) *)
+    let cs_dl_load = foreign "cs_dl_load" (ptr file @-> returning (ptr cs_dl))
 
     let cs_dl_amd = foreign "cs_dl_amd" (int64_t @-> ptr cs_dl @-> returning (ptr int64_t))
 
@@ -97,8 +100,11 @@ module Make (F : Cstubs.FOREIGN) = struct
 
     let cs_dl_etree = foreign "cs_dl_etree" (ptr cs_dl @-> int64_t @-> returning (ptr int64_t))
 
+    (** refer to https://github.com/ocamllabs/ocaml-ctypes/issues/364
     let fkeep_func_ptr = Foreign.funptr Ctypes.(int64_t @-> int64_t @-> double @-> ptr void @-> returning int64_t)
-    let cs_dl_fkeep = foreign "cs_dl_fkeep" (ptr cs_dl @-> fkeep_func_ptr @-> ptr void @-> returning int64_t)
+    let cs_dl_fkeep = foreign "cs_dl_fkeep" (ptr cs_dl @-> fkeep_func_ptr @-> ptr void @-> returning int64_t) *)
+
+    let cs_dl_fkeep = foreign "cs_dl_fkeep" (ptr cs_dl @-> ptr void @-> ptr void @-> returning int64_t)
 
     let cs_dl_house = foreign "cs_dl_house" (ptr double @-> ptr double @-> int64_t @-> returning double)
 

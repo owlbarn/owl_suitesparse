@@ -304,7 +304,4 @@ module Make (F : Cstubs.FOREIGN) = struct
       (int64_t @-> ptr int64_t @-> ptr double @-> returning int64_t)
 
 
-  let umfpack_timer = foreign "umfpack_timer" (void @-> returning double)
-  let umfpack_tic = foreign "umfpack_tic" (ptr double @-> returning void)
-  let umfpack_toc = foreign "umfpack_toc" (ptr double @-> returning void)
 end

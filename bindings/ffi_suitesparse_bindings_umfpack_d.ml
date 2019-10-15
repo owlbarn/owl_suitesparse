@@ -34,4 +34,6 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let umfpack_dl_wsolve = foreign "umfpack_dl_wsolve" (int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr double @-> ptr void @-> ptr double @-> ptr double @-> ptr int64_t @-> ptr double @-> returning int64_t)
 
+  let umfpack_dl_triplet_to_col = foreign "umfpack_dl_triplet_to_col" (int64_t @-> int64_t @-> int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr int64_t @-> returning int64_t)
+
 end

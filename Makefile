@@ -1,5 +1,5 @@
 .PHONY: all
-all: build
+all: build format
 
 .PHONY: depend depends
 depend depends:
@@ -33,6 +33,10 @@ cleanall: uninstall
 doc:
 	opam install -y odoc
 	dune build @doc
+
+.PHONY: format
+format:
+	dune build @fmt --auto-promote
 
 .PHONY: push
 push:

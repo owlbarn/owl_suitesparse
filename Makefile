@@ -1,5 +1,5 @@
 .PHONY: all
-all: build format
+all: build
 
 .PHONY: depend depends
 depend depends:

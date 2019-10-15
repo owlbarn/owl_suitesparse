@@ -11,6 +11,7 @@
  (c_library_flags 
   :standard
   -lcxsparse
+  -lumfpack
   )
  (libraries ctypes))
 

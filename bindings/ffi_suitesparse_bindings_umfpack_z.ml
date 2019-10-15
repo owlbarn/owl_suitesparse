@@ -302,6 +302,4 @@ module Make (F : Cstubs.FOREIGN) = struct
     foreign
       "umfpack_zl_report_perm"
       (int64_t @-> ptr int64_t @-> ptr double @-> returning int64_t)
-
-
 end

@@ -6,10 +6,7 @@
  * SuiteSparse Copyright (c) by Timothy A. Davis.
  *)
 
-
 let version = "5.4.0"
 
-
 module CS = Owl_suitesparse_cs
-
 module UMFPACK = Owl_suitesparse_umfpack

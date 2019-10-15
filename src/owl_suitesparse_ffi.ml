@@ -6,5 +6,4 @@
  * SuiteSparse Copyright (c) by Timothy A. Davis.
  *)
 
- 
-include Ffi_suitesparse_bindings.Bindings(Ffi_suitesparse_generated)
+include Ffi_suitesparse_bindings.Bindings (Ffi_suitesparse_generated)

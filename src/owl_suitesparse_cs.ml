@@ -6,11 +6,7 @@
  * SuiteSparse Copyright (c) by Timothy A. Davis.
  *)
 
-
-let cs_dl_spfree a =
-  Owl_suitesparse_ffi.CS_D.cs_dl_spfree a
-  |> ignore
-
+let cs_dl_spfree a = Owl_suitesparse_ffi.CS_D.cs_dl_spfree a |> ignore
 
 let cs_dl_spalloc ~m ~n ~nzmax ~values ~t =
   let m = Int64.of_int m in
@@ -23,7 +19,7 @@ let cs_dl_spalloc ~m ~n ~nzmax ~values ~t =
   a
 
 
-let cs_dl_entry ~a ~i ~j ~v = 
+let cs_dl_entry ~a ~i ~j ~v =
   let i = Int64.of_int i in
   let j = Int64.of_int j in
   let result = Owl_suitesparse_ffi.CS_D.cs_dl_entry a i j v in
@@ -31,7 +27,7 @@ let cs_dl_entry ~a ~i ~j ~v =
   Owl_suitesparse_exception.fail_on_nonzero result "cs_dl_entry"
 
 
-let cs_dl_print ~a ~belief = 
+let cs_dl_print ~a ~belief =
   let belief = Int64.of_int belief in
   let result = Owl_suitesparse_ffi.CS_D.cs_dl_print a belief in
   let result = Int64.to_int result in
@@ -56,7 +52,7 @@ let cs_dl_multiply ~a ~b =
   c
 
 
-let cs_dl_dupl a = 
+let cs_dl_dupl a =
   let result = Owl_suitesparse_ffi.CS_D.cs_dl_dupl a in
   let result = Int64.to_int result in
   Owl_suitesparse_exception.fail_on_nonzero result "cs_dl_dupl"

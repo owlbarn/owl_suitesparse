@@ -1,18 +1,16 @@
 (copy_files# ../bindings/include/*)
+
 (copy_files# ../bindings/ffi_suitesparse_bindings*)
 
 (library
  (name owl_suitesparse)
  (public_name owl-suitesparse)
  (wrapped false)
- (flags (:standard -safe-string))
+ (flags
+  (:standard -safe-string))
  (c_names ffi_suitesparse_generated_stub)
  (c_flags :standard)
- (c_library_flags 
-  :standard
-  -lcxsparse
-  -lumfpack
-  )
+ (c_library_flags :standard -lcxsparse -lumfpack)
  (libraries ctypes))
 
 (rule
@@ -21,10 +19,7 @@
  (action
   (with-stdout-to
    %{targets}
-   (run %{deps} -ml)
-  )
- )
-)
+   (run %{deps} -ml))))
 
 (rule
  (targets ffi_suitesparse_generated_stub.c)
@@ -32,7 +27,4 @@
  (action
   (with-stdout-to
    %{targets}
-   (run %{deps} -c)
-  )
- )
-)
+   (run %{deps} -c))))

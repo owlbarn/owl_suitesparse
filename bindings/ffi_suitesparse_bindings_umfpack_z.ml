@@ -36,4 +36,10 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let umfpack_zl_triplet_to_col = foreign "umfpack_zl_triplet_to_col" (int64_t @-> int64_t @-> int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr int64_t @-> returning int64_t)
 
+  let umfpack_zl_col_to_triplet = foreign "umfpack_zl_col_to_triplet" (int64_t @-> ptr int64_t @-> ptr int64_t @-> returning int64_t)
+
+  let umfpack_zl_transpose = foreign "umfpack_zl_transpose" (int64_t @-> int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> ptr int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr int64_t @-> ptr double @-> ptr double @-> int64_t @-> returning int64_t)
+
+  let umfpack_zl_scale = foreign "umfpack_zl_scale" (ptr double @-> ptr double @-> ptr double @-> ptr double @-> ptr void @-> returning int64_t)
+
 end

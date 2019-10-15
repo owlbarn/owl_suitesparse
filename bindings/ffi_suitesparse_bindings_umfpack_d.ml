@@ -26,10 +26,6 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> returning int64_t)
 
 
-  let umfpack_dl_report_symbolic =
-    foreign "umfpack_dl_report_symbolic" (ptr void @-> ptr double @-> returning int64_t)
-
-
   let umfpack_dl_solve =
     foreign
       "umfpack_dl_solve"
@@ -213,4 +209,68 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let umfpack_dl_load_symbolic =
     foreign "umfpack_dl_load_symbolic" (ptr (ptr void) @-> ptr char @-> returning int64_t)
+
+
+  let umfpack_dl_get_determinant =
+    foreign
+      "umfpack_dl_get_determinant"
+      (ptr double @-> ptr double @-> ptr void @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_dl_report_status =
+    foreign "umfpack_dl_report_status" (ptr double @-> int64_t @-> returning void)
+
+
+  let umfpack_dl_report_info =
+    foreign "umfpack_dl_report_info" (ptr double @-> ptr double @-> returning void)
+
+
+  let umfpack_dl_report_control =
+    foreign "umfpack_dl_report_control" (ptr double @-> returning void)
+
+
+  let umfpack_dl_report_matrix =
+    foreign
+      "umfpack_dl_report_matrix"
+      (int64_t
+      @-> int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr double
+      @-> int64_t
+      @-> ptr double
+      @-> returning int64_t)
+
+
+  let umfpack_dl_report_triplet =
+    foreign
+      "umfpack_dl_report_triplet"
+      (int64_t
+      @-> int64_t
+      @-> int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr double
+      @-> ptr double
+      @-> returning int64_t)
+
+
+  let umfpack_dl_report_vector =
+    foreign
+      "umfpack_dl_report_vector"
+      (int64_t @-> ptr double @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_dl_report_symbolic =
+    foreign "umfpack_dl_report_symbolic" (ptr void @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_dl_report_numeric =
+    foreign "umfpack_dl_report_numeric" (ptr void @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_dl_report_perm =
+    foreign
+      "umfpack_dl_report_perm"
+      (int64_t @-> ptr int64_t @-> ptr double @-> returning int64_t)
 end

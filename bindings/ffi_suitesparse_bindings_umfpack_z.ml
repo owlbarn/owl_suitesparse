@@ -27,10 +27,6 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> returning int64_t)
 
 
-  let umfpack_zl_report_symbolic =
-    foreign "umfpack_zl_report_symbolic" (ptr void @-> ptr double @-> returning int64_t)
-
-
   let umfpack_zl_solve =
     foreign
       "umfpack_zl_solve"
@@ -246,4 +242,69 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr void
       @-> ptr double
       @-> returning int64_t)
+
+
+  let umfpack_zl_report_status =
+    foreign "umfpack_zl_report_status" (ptr double @-> int64_t @-> returning void)
+
+
+  let umfpack_zl_report_info =
+    foreign "umfpack_zl_report_info" (ptr double @-> ptr double @-> returning void)
+
+
+  let umfpack_zl_report_control =
+    foreign "umfpack_zl_report_control" (ptr double @-> returning void)
+
+
+  let umfpack_zl_report_matrix =
+    foreign
+      "umfpack_zl_report_matrix"
+      (int64_t
+      @-> int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr double
+      @-> ptr double
+      @-> int64_t
+      @-> ptr double
+      @-> returning int64_t)
+
+
+  let umfpack_zl_report_triplet =
+    foreign
+      "umfpack_zl_report_triplet"
+      (int64_t
+      @-> int64_t
+      @-> int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr double
+      @-> ptr double
+      @-> ptr double
+      @-> returning int64_t)
+
+
+  let umfpack_zl_report_vector =
+    foreign
+      "umfpack_zl_report_vector"
+      (int64_t @-> ptr double @-> ptr double @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_zl_report_symbolic =
+    foreign "umfpack_zl_report_symbolic" (ptr void @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_zl_report_numeric =
+    foreign "umfpack_zl_report_numeric" (ptr void @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_zl_report_perm =
+    foreign
+      "umfpack_zl_report_perm"
+      (int64_t @-> ptr int64_t @-> ptr double @-> returning int64_t)
+
+
+  let umfpack_timer = foreign "umfpack_timer" (void @-> returning double)
+  let umfpack_tic = foreign "umfpack_tic" (ptr double @-> returning void)
+  let umfpack_toc = foreign "umfpack_toc" (ptr double @-> returning void)
 end

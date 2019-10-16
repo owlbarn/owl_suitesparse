@@ -17,6 +17,16 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let cholmod_common : cholmod_common structure typ = structure "cholmod_common_struct"
 
+  type cholmod_sparse
+
+  let cholmod_sparse : cholmod_sparse structure typ = structure "cholmod_sparse_struct"
+
+  type descendantScore
+
+  let descendantScore : descendantScore structure typ =
+    structure "cholmod_descendant_score_t"
+
+
   (** core functions *)
 
   let cholmod_l_start = foreign "cholmod_l_start" (ptr cholmod_common @-> returning int)

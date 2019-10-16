@@ -7,7 +7,6 @@
  *)
 
 module Bindings (F : Cstubs.FOREIGN) = struct
-
   (** cxsparse *)
 
   module CS_D = Ffi_suitesparse_bindings_cs_d.Make (F)
@@ -22,5 +21,5 @@ module Bindings (F : Cstubs.FOREIGN) = struct
 
   (** cholmod *)
 
-  module CHOLMOD_CORE = Ffi_suitesparse_bindings_cholmod_core.Make(F)
+  module CHOLMOD_CORE = Ffi_suitesparse_bindings_cholmod_core.Make (F)
 end

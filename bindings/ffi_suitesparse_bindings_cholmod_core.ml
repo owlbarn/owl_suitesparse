@@ -322,4 +322,28 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> int
       @-> ptr cholmod_common
       @-> returning (ptr cholmod_dense))
+
+
+  let cholmod_l_zeros =
+    foreign
+      "cholmod_l_zeros"
+      (size_t @-> size_t @-> int @-> ptr cholmod_common @-> returning (ptr cholmod_dense))
+
+
+  let cholmod_l_ones =
+    foreign
+      "cholmod_l_ones"
+      (size_t @-> size_t @-> int @-> ptr cholmod_common @-> returning (ptr cholmod_dense))
+
+
+  let cholmod_l_eye =
+    foreign
+      "cholmod_l_eye"
+      (size_t @-> size_t @-> int @-> ptr cholmod_common @-> returning (ptr cholmod_dense))
+
+
+  let cholmod_l_free_dense =
+    foreign
+      "cholmod_l_free_dense"
+      (ptr (ptr cholmod_dense) @-> ptr cholmod_common @-> returning int)
 end

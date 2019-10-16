@@ -1,1 +1,3 @@
-# owl_suitesparse
+# Owl Interface to SuiteSparse
+
+Working in progress ...

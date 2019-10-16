@@ -11,4 +11,6 @@ module Bindings (F : Cstubs.FOREIGN) = struct
   module CS_Z = Ffi_suitesparse_bindings_cs_z.Make (F)
   module UMFPACK_D = Ffi_suitesparse_bindings_umfpack_d.Make (F)
   module UMFPACK_Z = Ffi_suitesparse_bindings_umfpack_z.Make (F)
+  module UMFPACK_AMD = Ffi_suitesparse_bindings_umfpack_amd.Make (F)
+  module UMFPACK_UTILS = Ffi_suitesparse_bindings_umfpack_utils.Make (F)
 end

@@ -6,4 +6,4 @@
  * SuiteSparse Copyright (c) by Timothy A. Davis.
  *)
 
-let test () = print_endline "hello"
+let test () = print_endline "hello world"

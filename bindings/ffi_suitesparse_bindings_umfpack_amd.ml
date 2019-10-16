@@ -41,7 +41,7 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr int64_t
       @-> ptr double
       @-> ptr double
-      @-> returning int64_t)
+      @-> returning void)
 
 
   let amd_l_valid =

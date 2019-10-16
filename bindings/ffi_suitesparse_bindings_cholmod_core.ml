@@ -21,9 +21,13 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let cholmod_sparse : cholmod_sparse structure typ = structure "cholmod_sparse_struct"
 
-  type descendantScore
+  type cholmod_factor
 
-  let descendantScore : descendantScore structure typ =
+  let cholmod_factor : cholmod_factor structure typ = structure "cholmod_factor_struct"
+
+  type descendant_score
+
+  let descendant_score : descendant_score structure typ =
     structure "cholmod_descendant_score_t"
 
 
@@ -75,5 +79,202 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> double
       @-> ptr double
       @-> ptr double
+      @-> returning int)
+
+
+  let cholmod_l_score_comp =
+    foreign
+      "cholmod_l_score_comp"
+      (ptr descendant_score @-> ptr descendant_score @-> returning int)
+
+
+  let cholmod_l_allocate_sparse =
+    foreign
+      "cholmod_l_allocate_sparse"
+      (size_t
+      @-> size_t
+      @-> size_t
+      @-> int
+      @-> int
+      @-> int
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_free_sparse =
+    foreign
+      "cholmod_l_free_sparse"
+      (ptr (ptr cholmod_sparse) @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_reallocate_sparse =
+    foreign
+      "cholmod_l_reallocate_sparse"
+      (size_t @-> ptr cholmod_sparse @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_nnz =
+    foreign
+      "cholmod_l_nnz"
+      (ptr cholmod_sparse @-> ptr cholmod_common @-> returning int64_t)
+
+
+  let cholmod_l_spzeros =
+    foreign
+      "cholmod_l_spzeros"
+      (size_t
+      @-> size_t
+      @-> size_t
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_transpose =
+    foreign
+      "cholmod_l_transpose"
+      (ptr cholmod_sparse
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_transpose_unsym =
+    foreign
+      "cholmod_l_transpose_unsym"
+      (ptr cholmod_sparse
+      @-> int
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> size_t
+      @-> ptr cholmod_sparse
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_transpose_sym =
+    foreign
+      "cholmod_l_transpose_sym"
+      (ptr cholmod_sparse
+      @-> int
+      @-> ptr int64_t
+      @-> ptr cholmod_sparse
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_ptranspose =
+    foreign
+      "cholmod_l_ptranspose"
+      (ptr cholmod_sparse
+      @-> int
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> size_t
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_sort =
+    foreign "cholmod_l_sort" (ptr cholmod_sparse @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_band =
+    foreign
+      "cholmod_l_band"
+      (ptr cholmod_sparse
+      @-> int64_t
+      @-> int64_t
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_band_inplace =
+    foreign
+      "cholmod_l_band_inplace"
+      (int64_t
+      @-> int64_t
+      @-> int
+      @-> ptr cholmod_sparse
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_aat =
+    foreign
+      "cholmod_l_aat"
+      (ptr cholmod_sparse
+      @-> ptr int64_t
+      @-> size_t
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_copy_sparse =
+    foreign
+      "cholmod_l_copy_sparse"
+      (ptr cholmod_sparse @-> ptr cholmod_common @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_copy =
+    foreign
+      "cholmod_l_copy"
+      (ptr cholmod_sparse
+      @-> int
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_add =
+    foreign
+      "cholmod_l_add"
+      (ptr cholmod_sparse
+      @-> ptr cholmod_sparse
+      @-> ptr double
+      @-> ptr double
+      @-> int
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_sparse_xtype =
+    foreign
+      "cholmod_l_sparse_xtype"
+      (int @-> ptr cholmod_sparse @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_allocate_factor =
+    foreign
+      "cholmod_l_allocate_factor"
+      (size_t @-> ptr cholmod_common @-> returning (ptr cholmod_factor))
+
+
+  let cholmod_l_free_factor =
+    foreign
+      "cholmod_l_free_factor"
+      (ptr (ptr cholmod_factor) @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_reallocate_factor =
+    foreign
+      "cholmod_l_reallocate_factor"
+      (size_t @-> ptr cholmod_factor @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_change_factor =
+    foreign
+      "cholmod_l_change_factor"
+      (int
+      @-> int
+      @-> int
+      @-> int
+      @-> int
+      @-> ptr cholmod_factor
+      @-> ptr cholmod_common
       @-> returning int)
 end

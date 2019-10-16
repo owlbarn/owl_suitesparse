@@ -21,6 +21,10 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let cholmod_sparse : cholmod_sparse structure typ = structure "cholmod_sparse_struct"
 
+  type cholmod_dense
+
+  let cholmod_dense : cholmod_dense structure typ = structure "cholmod_dense_struct"
+
   type cholmod_factor
 
   let cholmod_factor : cholmod_factor structure typ = structure "cholmod_factor_struct"
@@ -277,4 +281,45 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr cholmod_factor
       @-> ptr cholmod_common
       @-> returning int)
+
+
+  let cholmod_l_pack_factor =
+    foreign
+      "cholmod_l_pack_factor"
+      (ptr cholmod_factor @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_reallocate_column =
+    foreign
+      "cholmod_l_reallocate_column"
+      (size_t @-> size_t @-> ptr cholmod_factor @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_factor_to_sparse =
+    foreign
+      "cholmod_l_factor_to_sparse"
+      (ptr cholmod_factor @-> ptr cholmod_common @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_copy_factor =
+    foreign
+      "cholmod_l_copy_factor"
+      (ptr cholmod_factor @-> ptr cholmod_common @-> returning (ptr cholmod_factor))
+
+
+  let cholmod_l_factor_xtype =
+    foreign
+      "cholmod_l_factor_xtype"
+      (int @-> ptr cholmod_factor @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_allocate_dense =
+    foreign
+      "cholmod_l_allocate_dense"
+      (size_t
+      @-> size_t
+      @-> size_t
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_dense))
 end

@@ -13,33 +13,7 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   (** type definitions *)
 
-  type cholmod_common
-
-  let cholmod_common : cholmod_common structure typ = structure "cholmod_common_struct"
-
-  type cholmod_sparse
-
-  let cholmod_sparse : cholmod_sparse structure typ = structure "cholmod_sparse_struct"
-
-  type cholmod_dense
-
-  let cholmod_dense : cholmod_dense structure typ = structure "cholmod_dense_struct"
-
-  type cholmod_factor
-
-  let cholmod_factor : cholmod_factor structure typ = structure "cholmod_factor_struct"
-
-  type cholmod_triplet
-
-  let cholmod_triplet : cholmod_triplet structure typ =
-    structure "cholmod_triplet_struct"
-
-
-  type descendant_score
-
-  let descendant_score : descendant_score structure typ =
-    structure "cholmod_descendant_score_t"
-
+  include Ffi_suitesparse_bindings_cholmod_type.Make (F)
 
   (** core functions *)
 

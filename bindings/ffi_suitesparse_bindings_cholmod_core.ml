@@ -29,6 +29,12 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   let cholmod_factor : cholmod_factor structure typ = structure "cholmod_factor_struct"
 
+  type cholmod_triplet
+
+  let cholmod_triplet : cholmod_triplet structure typ =
+    structure "cholmod_triplet_struct"
+
+
   type descendant_score
 
   let descendant_score : descendant_score structure typ =
@@ -379,4 +385,108 @@ module Make (F : Cstubs.FOREIGN) = struct
     foreign
       "cholmod_l_copy_dense"
       (ptr cholmod_dense @-> ptr cholmod_common @-> returning (ptr cholmod_dense))
+
+
+  let cholmod_l_copy_dense2 =
+    foreign
+      "cholmod_l_copy_dense2"
+      (ptr cholmod_dense @-> ptr cholmod_dense @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_dense_xtype =
+    foreign
+      "cholmod_l_dense_xtype"
+      (int @-> ptr cholmod_dense @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_allocate_triplet =
+    foreign
+      "cholmod_l_allocate_triplet"
+      (size_t
+      @-> size_t
+      @-> size_t
+      @-> int
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_triplet))
+
+
+  let cholmod_l_free_triplet =
+    foreign
+      "cholmod_l_free_triplet"
+      (ptr (ptr cholmod_triplet) @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_reallocate_triplet =
+    foreign
+      "cholmod_l_reallocate_triplet"
+      (size_t @-> ptr cholmod_triplet @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_sparse_to_triplet =
+    foreign
+      "cholmod_l_sparse_to_triplet"
+      (ptr cholmod_sparse @-> ptr cholmod_common @-> returning (ptr cholmod_triplet))
+
+
+  let cholmod_l_triplet_to_sparse =
+    foreign
+      "cholmod_l_triplet_to_sparse"
+      (ptr cholmod_triplet
+      @-> size_t
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_sparse))
+
+
+  let cholmod_l_copy_triplet =
+    foreign
+      "cholmod_l_copy_triplet"
+      (ptr cholmod_triplet @-> ptr cholmod_common @-> returning (ptr cholmod_triplet))
+
+
+  let cholmod_l_triplet_xtype =
+    foreign
+      "cholmod_l_triplet_xtype"
+      (int @-> ptr cholmod_triplet @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_malloc =
+    foreign
+      "cholmod_l_malloc"
+      (size_t @-> size_t @-> ptr cholmod_common @-> returning (ptr void))
+
+
+  let cholmod_l_free =
+    foreign
+      "cholmod_l_free"
+      (size_t @-> size_t @-> ptr void @-> ptr cholmod_common @-> returning (ptr void))
+
+
+  let cholmod_l_realloc =
+    foreign
+      "cholmod_l_realloc"
+      (size_t
+      @-> size_t
+      @-> ptr void
+      @-> ptr size_t
+      @-> ptr cholmod_common
+      @-> returning (ptr void))
+
+
+  let cholmod_l_realloc_multiple =
+    foreign
+      "cholmod_l_realloc_multiple"
+      (size_t
+      @-> int
+      @-> int
+      @-> ptr (ptr void)
+      @-> ptr (ptr void)
+      @-> ptr (ptr void)
+      @-> ptr (ptr void)
+      @-> ptr size_t
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_version = foreign "cholmod_l_version" (ptr int @-> returning int)
 end

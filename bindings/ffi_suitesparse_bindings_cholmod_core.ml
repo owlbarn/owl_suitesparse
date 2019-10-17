@@ -346,4 +346,16 @@ module Make (F : Cstubs.FOREIGN) = struct
     foreign
       "cholmod_l_free_dense"
       (ptr (ptr cholmod_dense) @-> ptr cholmod_common @-> returning int)
+
+
+  let cholmod_l_ensure_dense =
+    foreign
+      "cholmod_l_ensure_dense"
+      (ptr (ptr cholmod_dense)
+      @-> size_t
+      @-> size_t
+      @-> size_t
+      @-> int
+      @-> ptr cholmod_common
+      @-> returning (ptr cholmod_dense))
 end

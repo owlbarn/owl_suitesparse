@@ -203,4 +203,68 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr cholmod_factor
       @-> ptr cholmod_common
       @-> returning int)
+
+
+  let cholmod_l_row_subtree =
+    foreign
+      "cholmod_l_row_subtree"
+      (ptr cholmod_sparse
+      @-> ptr cholmod_sparse
+      @-> size_t
+      @-> ptr int64_t
+      @-> ptr cholmod_sparse
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_lsolve_pattern =
+    foreign
+      "cholmod_l_lsolve_pattern"
+      (ptr cholmod_sparse
+      @-> ptr cholmod_factor
+      @-> ptr cholmod_sparse
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_row_lsubtree =
+    foreign
+      "cholmod_l_row_lsubtree"
+      (ptr cholmod_sparse
+      @-> ptr int64_t
+      @-> size_t
+      @-> size_t
+      @-> ptr cholmod_factor
+      @-> ptr cholmod_sparse
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_resymbol_noperm =
+    foreign
+      "cholmod_l_resymbol_noperm"
+      (ptr cholmod_sparse
+      @-> ptr int64_t
+      @-> size_t
+      @-> int
+      @-> ptr cholmod_factor
+      @-> ptr cholmod_common
+      @-> returning int)
+
+
+  let cholmod_l_rcond =
+    foreign
+      "cholmod_l_rcond"
+      (ptr cholmod_factor @-> ptr cholmod_common @-> returning double)
+
+
+  let cholmod_l_postorder =
+    foreign
+      "cholmod_l_postorder"
+      (ptr int64_t
+      @-> size_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr cholmod_common
+      @-> returning int64_t)
 end

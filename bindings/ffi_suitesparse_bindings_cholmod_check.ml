@@ -16,7 +16,7 @@ module Make (F : Cstubs.FOREIGN) = struct
   include Ffi_suitesparse_bindings_cholmod_type.Make (F)
 
   (** core functions *)
-  
+
   let cholmod_l_check_common =
     foreign "cholmod_l_check_common" (ptr cholmod_common @-> returning int)
 

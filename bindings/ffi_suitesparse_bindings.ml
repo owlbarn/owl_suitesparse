@@ -28,13 +28,6 @@ module Bindings (F : Cstubs.FOREIGN) = struct
   module CS_D = Ffi_suitesparse_bindings_cs_d.Make (F)
   module CS_Z = Ffi_suitesparse_bindings_cs_z.Make (F)
 
-  (** umfpack *)
-
-  module UMFPACK_D = Ffi_suitesparse_bindings_umfpack_d.Make (F)
-  module UMFPACK_Z = Ffi_suitesparse_bindings_umfpack_z.Make (F)
-  module UMFPACK_AMD = Ffi_suitesparse_bindings_umfpack_amd.Make (F)
-  module UMFPACK_UTILS = Ffi_suitesparse_bindings_umfpack_utils.Make (F)
-
   (** cholmod *)
 
   module CHOLMOD_CAMD = Ffi_suitesparse_bindings_cholmod_camd.Make (F)
@@ -46,7 +39,18 @@ module Bindings (F : Cstubs.FOREIGN) = struct
   module CHOLMOD_PARTITION = Ffi_suitesparse_bindings_cholmod_partition.Make (F)
   module CHOLMOD_SUPERNODAL = Ffi_suitesparse_bindings_cholmod_supernodal.Make (F)
 
+  (** klu *)
+
+  module KLU = Ffi_suitesparse_bindings_klu.Make (F)
+
   (** SuiteSparseQR *)
 
   module QR = Ffi_suitesparse_bindings_qr.Make (F)
+
+  (** umfpack *)
+
+  module UMFPACK_D = Ffi_suitesparse_bindings_umfpack_d.Make (F)
+  module UMFPACK_Z = Ffi_suitesparse_bindings_umfpack_z.Make (F)
+  module UMFPACK_AMD = Ffi_suitesparse_bindings_umfpack_amd.Make (F)
+  module UMFPACK_UTILS = Ffi_suitesparse_bindings_umfpack_utils.Make (F)
 end

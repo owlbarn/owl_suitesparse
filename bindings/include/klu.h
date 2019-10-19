@@ -53,7 +53,7 @@ typedef struct
 
 } klu_symbolic ;
 
-typedef struct          /* 64-bit version (otherwise same as above) */
+typedef struct klu_l_symbolic_struct         /* 64-bit version (otherwise same as above) */
 {
     double symmetry, est_flops, lnz, unz ;
     double *Lnz ;
@@ -106,7 +106,7 @@ typedef struct
 
 } klu_numeric ;
 
-typedef struct          /* 64-bit version (otherwise same as above) */
+typedef struct klu_l_numeric_struct      /* 64-bit version (otherwise same as above) */
 {
     SuiteSparse_long n, nblocks, lnz, unz, max_lnz_block, max_unz_block, *Pnum,
         *Pinv, *Lip, *Uip, *Llen, *Ulen ;

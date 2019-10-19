@@ -7,6 +7,10 @@
  *)
 
 module Bindings (F : Cstubs.FOREIGN) = struct
+  (** CAMD *)
+
+  module CAMD = Ffi_suitesparse_bindings_camd.Make (F)
+
   (** cxsparse *)
 
   module CS_D = Ffi_suitesparse_bindings_cs_d.Make (F)
@@ -28,10 +32,9 @@ module Bindings (F : Cstubs.FOREIGN) = struct
   module CHOLMOD_MATRIXOPS = Ffi_suitesparse_bindings_cholmod_matrixops.Make (F)
   module CHOLMOD_MODIFY = Ffi_suitesparse_bindings_cholmod_modify.Make (F)
   module CHOLMOD_PARTITION = Ffi_suitesparse_bindings_cholmod_partition.Make (F)
-
   module CHOLMOD_SUPERNODAL = Ffi_suitesparse_bindings_cholmod_supernodal.Make (F)
-  (** module CHOLMOD_GPU = Ffi_suitesparse_bindings_cholmod_gpu.Make (F) *)
+
+  (** SuiteSparseQR *)
 
   module QR = Ffi_suitesparse_bindings_qr.Make (F)
-  (** SuiteSparseQR *)
 end

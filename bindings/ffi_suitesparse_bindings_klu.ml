@@ -143,4 +143,22 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr klu_l_numeric
       @-> ptr klu_l_common
       @-> returning int64_t)
+
+
+  let klu_l_free_symbolic =
+    foreign
+      "klu_l_free_symbolic"
+      (ptr (ptr klu_l_symbolic) @-> ptr klu_l_common @-> returning int64_t)
+
+
+  let klu_l_free_numeric =
+    foreign
+      "klu_l_free_numeric"
+      (ptr (ptr klu_l_numeric) @-> ptr klu_l_common @-> returning int64_t)
+
+
+  let klu_zl_free_numeric =
+    foreign
+      "klu_zl_free_numeric"
+      (ptr (ptr klu_l_numeric) @-> ptr klu_l_common @-> returning int64_t)
 end

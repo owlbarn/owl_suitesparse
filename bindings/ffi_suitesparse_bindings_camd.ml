@@ -29,4 +29,27 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr int64_t
       @-> returning int64_t)
 
+
+      let camd_l2 =
+        foreign
+          "camd_l2"
+          (int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> ptr double
+          @-> ptr double
+          @-> ptr int64_t
+          @-> ptr int64_t
+          @-> returning void)
+
 end

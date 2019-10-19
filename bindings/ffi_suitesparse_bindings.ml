@@ -21,5 +21,13 @@ module Bindings (F : Cstubs.FOREIGN) = struct
 
   (** cholmod *)
 
+  module CHOLMOD_CAMD = Ffi_suitesparse_bindings_cholmod_camd.Make (F)
+  module CHOLMOD_CHECK = Ffi_suitesparse_bindings_cholmod_check.Make (F)
+  module CHOLMOD_CHOLESKY = Ffi_suitesparse_bindings_cholmod_cholesky.Make (F)
   module CHOLMOD_CORE = Ffi_suitesparse_bindings_cholmod_core.Make (F)
+  module CHOLMOD_GPU = Ffi_suitesparse_bindings_cholmod_gpu.Make (F)
+  module CHOLMOD_MATRIXOPS = Ffi_suitesparse_bindings_cholmod_matrixops.Make (F)
+  module CHOLMOD_MODIFY = Ffi_suitesparse_bindings_cholmod_modify.Make (F)
+  module CHOLMOD_PARTITION = Ffi_suitesparse_bindings_cholmod_partition.Make (F)
+  module CHOLMOD_SUPERNODAL = Ffi_suitesparse_bindings_cholmod_supernodal.Make (F)
 end

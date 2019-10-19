@@ -69,7 +69,7 @@ module Make (F : Cstubs.FOREIGN) = struct
       "cholmod_l_solve"
       (int
       @-> ptr cholmod_factor
-      @-> ptr cholmod_factor
+      @-> ptr cholmod_dense
       @-> ptr cholmod_common
       @-> returning (ptr cholmod_dense))
 
@@ -179,7 +179,7 @@ module Make (F : Cstubs.FOREIGN) = struct
       "cholmod_l_rowfac_mask"
       (ptr cholmod_sparse
       @-> ptr cholmod_sparse
-      @-> double
+      @-> ptr double
       @-> size_t
       @-> size_t
       @-> ptr int64_t
@@ -194,7 +194,7 @@ module Make (F : Cstubs.FOREIGN) = struct
       "cholmod_l_rowfac_mask2"
       (ptr cholmod_sparse
       @-> ptr cholmod_sparse
-      @-> double
+      @-> ptr double
       @-> size_t
       @-> size_t
       @-> ptr int64_t

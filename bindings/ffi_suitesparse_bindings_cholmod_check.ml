@@ -114,7 +114,7 @@ module Make (F : Cstubs.FOREIGN) = struct
   let cholmod_l_check_parent =
     foreign
       "cholmod_l_check_parent"
-      (int64_t @-> size_t @-> ptr cholmod_common @-> returning int)
+      (ptr int64_t @-> size_t @-> ptr cholmod_common @-> returning int)
 
 
   let cholmod_l_print_parent =
@@ -151,7 +151,8 @@ module Make (F : Cstubs.FOREIGN) = struct
     foreign
       "cholmod_l_write_sparse"
       (ptr void
-      @-> ptr cholmod_dense
+      @-> ptr cholmod_sparse
+      @-> ptr cholmod_sparse
       @-> ptr char
       @-> ptr cholmod_common
       @-> returning int)

@@ -24,7 +24,9 @@ let _ =
     print_endline "#include <stdint.h>";
     print_endline "#include \"cs.h\"";
     print_endline "#include \"cholmod.h\"";
+    print_endline "#include \"cholmod_gpu.h\"";
     print_endline "#include \"umfpack.h\"";
+    print_endline "#include \"SuiteSparseQR_C.h\"";
     Cstubs.write_c
       Format.std_formatter
       ~prefix

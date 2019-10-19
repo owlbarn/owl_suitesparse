@@ -99,6 +99,7 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr double
       @-> ptr cholmod_factor
       @-> ptr cholmod_dense
+      @-> ptr cholmod_dense
       @-> ptr cholmod_common
       @-> returning int)
 

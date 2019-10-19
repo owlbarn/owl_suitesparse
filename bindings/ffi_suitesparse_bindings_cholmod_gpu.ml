@@ -38,7 +38,7 @@ module Make (F : Cstubs.FOREIGN) = struct
 
 
   let cholmod_l_gpu_end =
-    foreign "cholmod_l_gpu_end" (ptr cholmod_common @-> returning int)
+    foreign "cholmod_l_gpu_end" (ptr cholmod_common @-> returning void)
 
 
   let cholmod_l_gpu_allocate =

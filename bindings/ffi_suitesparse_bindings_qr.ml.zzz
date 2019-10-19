@@ -1,0 +1,45 @@
+(*
+ * OWL - OCaml Scientific and Engineering Computing
+ * Copyright (c) 2016-2019 Liang Wang <liang.wang@cl.cam.ac.uk>
+ * 
+ * SuiteSparse - A Suite of Sparse Matrix Software 
+ * SuiteSparse Copyright (c) by Timothy A. Davis.
+ *)
+
+open Ctypes
+
+module Make (F : Cstubs.FOREIGN) = struct
+  open F
+
+  (** type definitions *)
+
+  include Ffi_suitesparse_bindings_cholmod_type.Make (F)
+
+  (** core functions *)
+
+
+  let suiteSparseQR_c =
+    foreign
+      "SuiteSparseQR_C"
+      (
+        int 
+    @-> double
+    @-> int64_t
+    @-> int
+    @-> ptr cholmod_sparse *A
+    @-> ptr cholmod_sparse *Bsparse
+    @-> ptr cholmod_dense  *Bdense
+    @-> ptr (ptr cholmod_sparse)
+    @-> ptr (ptr cholmod_dense)
+    @-> ptr (ptr cholmod_sparse)
+    @-> ptr (ptr int64_t)
+    @-> ptr (ptr cholmod_sparse)
+    @-> ptr (ptr int64_t)
+    @-> ptr (ptr cholmod_dense)
+    @-> ptr cholmod_common
+    @-> returning int64_t
+      )
+
+
+
+end

@@ -30,6 +30,7 @@ let _ =
     print_endline "#include \"cholmod.h\"";
     print_endline "#include \"cholmod_gpu.h\"";
     print_endline "#include \"klu.h\"";
+    print_endline "#include \"ldl.h\"";
     print_endline "#include \"umfpack.h\"";
     print_endline "#include \"SuiteSparseQR_C.h\"";
     Cstubs.write_c

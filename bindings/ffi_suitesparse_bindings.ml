@@ -43,6 +43,10 @@ module Bindings (F : Cstubs.FOREIGN) = struct
 
   module KLU = Ffi_suitesparse_bindings_klu.Make (F)
 
+  (** ldl *)
+
+  module LDL = Ffi_suitesparse_bindings_ldl.Make (F)
+
   (** SuiteSparseQR *)
 
   module QR = Ffi_suitesparse_bindings_qr.Make (F)

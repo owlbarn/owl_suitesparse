@@ -11,7 +11,7 @@
  (c_names ffi_suitesparse_generated_stub)
  (c_flags :standard)
  (c_library_flags :standard -lamd -lbtf -lcamd -lccolamd -lcolamd -lcxsparse
-   -lklu -lumfpack -lspqr -lsuitesparseconfig)
+   -lklu -lldl -lumfpack -lspqr -lsuitesparseconfig)
  (libraries ctypes))
 
 (rule

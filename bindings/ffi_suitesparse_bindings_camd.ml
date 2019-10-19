@@ -30,26 +30,40 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> returning int64_t)
 
 
-      let camd_l2 =
-        foreign
-          "camd_l2"
-          (int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> ptr double
-          @-> ptr double
-          @-> ptr int64_t
-          @-> ptr int64_t
-          @-> returning void)
+  let camd_l2 =
+    foreign
+      "camd_l2"
+      (int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> int64_t
+      @-> int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr double
+      @-> ptr double
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> returning void)
 
+
+  let camd_l_valid =
+    foreign
+      "camd_l_valid"
+      (int64_t @-> int64_t @-> ptr int64_t @-> ptr int64_t @-> returning int64_t)
+
+
+  let camd_l_cvalid =
+    foreign "camd_l_cvalid" (int64_t @-> ptr int64_t @-> returning int64_t)
+
+
+  let camd_l_defaults = foreign "camd_l_defaults" (ptr double @-> returning void)
+  let camd_l_control = foreign "camd_l_control" (ptr double @-> returning void)
+  let camd_l_info = foreign "camd_l_info" (ptr double @-> returning void)
 end

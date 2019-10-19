@@ -10,7 +10,7 @@
   (:standard -safe-string))
  (c_names ffi_suitesparse_generated_stub)
  (c_flags :standard)
- (c_library_flags :standard -lamd -lcamd -lcxsparse -lumfpack -lspqr
+ (c_library_flags :standard -lamd -lbtf -lcamd -lcxsparse -lumfpack -lspqr
    -lsuitesparseconfig)
  (libraries ctypes))
 

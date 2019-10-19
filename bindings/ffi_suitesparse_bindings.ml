@@ -7,6 +7,10 @@
  *)
 
 module Bindings (F : Cstubs.FOREIGN) = struct
+  (** BTF *)
+
+  module BTF = Ffi_suitesparse_bindings_btf.Make (F)
+
   (** CAMD *)
 
   module CAMD = Ffi_suitesparse_bindings_camd.Make (F)

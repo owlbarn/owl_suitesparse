@@ -22,6 +22,7 @@ let _ =
       (module Ffi_suitesparse_bindings.Bindings)
   | false, true ->
     print_endline "#include <stdint.h>";
+    print_endline "#include \"btf.h\"";
     print_endline "#include \"camd.h\"";
     print_endline "#include \"cs.h\"";
     print_endline "#include \"cholmod.h\"";

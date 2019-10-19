@@ -15,23 +15,94 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   (** core functions *)
 
-  let btf_l_maxtrans =
+  let ccolamd_l_recommended =
+    foreign "ccolamd_l_recommended" (int64_t @-> int64_t @-> int64_t @-> returning size_t)
+
+
+  let ccolamd_l_set_defaults =
+    foreign "ccolamd_l_set_defaults" (ptr double @-> returning void)
+
+
+  let ccolamd_l =
     foreign
-      "btf_l_maxtrans"
+      "ccolamd_l"
       (int64_t
+      @-> int64_t
       @-> int64_t
       @-> ptr int64_t
       @-> ptr int64_t
-      @-> double
       @-> ptr double
       @-> ptr int64_t
       @-> ptr int64_t
       @-> returning int64_t)
 
 
-  let btf_l_strongcomp =
+  let csymamd_l =
     foreign
-      "btf_l_strongcomp"
+      "csymamd_l"
+      (int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr double
+      @-> ptr int64_t
+      @-> ptr void
+      @-> ptr void
+      @-> ptr int64_t
+      @-> int64_t
+      @-> returning int64_t)
+
+
+  let ccolamd_l_report = foreign "ccolamd_l_report" (ptr int64_t @-> returning void)
+  let csymamd_l_report = foreign "csymamd_l_report" (ptr int64_t @-> returning void)
+
+  let ccolamd2_l =
+    foreign
+      "ccolamd2_l"
+      (int64_t
+      @-> int64_t
+      @-> int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr double
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> returning int64_t)
+
+
+  let ccolamd_l_apply_order =
+    foreign
+      "ccolamd_l_apply_order"
+      (ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> int64_t
+      @-> int64_t
+      @-> returning void)
+
+
+  let ccolamd_l_fsize =
+    foreign
+      "ccolamd_l_fsize"
+      (int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> returning void)
+
+
+  let ccolamd_l_postorder =
+    foreign
+      "ccolamd_l_postorder"
       (int64_t
       @-> ptr int64_t
       @-> ptr int64_t
@@ -39,18 +110,17 @@ module Make (F : Cstubs.FOREIGN) = struct
       @-> ptr int64_t
       @-> ptr int64_t
       @-> ptr int64_t
-      @-> returning int64_t)
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> ptr int64_t
+      @-> returning void)
 
 
-  let btf_l_order =
+  let ccolamd_l_post_tree =
     foreign
-      "btf_l_order"
+      "ccolamd_l_post_tree"
       (int64_t
-      @-> ptr int64_t
-      @-> ptr int64_t
-      @-> double
-      @-> ptr double
-      @-> ptr int64_t
+      @-> int64_t
       @-> ptr int64_t
       @-> ptr int64_t
       @-> ptr int64_t

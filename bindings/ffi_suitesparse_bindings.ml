@@ -19,6 +19,10 @@ module Bindings (F : Cstubs.FOREIGN) = struct
 
   module CCOLAMD = Ffi_suitesparse_bindings_ccolamd.Make (F)
 
+  (** colamd *)
+
+  module COLAMD = Ffi_suitesparse_bindings_colamd.Make (F)
+
   (** cxsparse *)
 
   module CS_D = Ffi_suitesparse_bindings_cs_d.Make (F)

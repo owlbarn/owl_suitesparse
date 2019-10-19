@@ -25,6 +25,7 @@ let _ =
     print_endline "#include \"btf.h\"";
     print_endline "#include \"camd.h\"";
     print_endline "#include \"ccolamd.h\"";
+    print_endline "#include \"colamd.h\"";
     print_endline "#include \"cs.h\"";
     print_endline "#include \"cholmod.h\"";
     print_endline "#include \"cholmod_gpu.h\"";

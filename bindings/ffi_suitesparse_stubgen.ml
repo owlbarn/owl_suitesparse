@@ -15,12 +15,12 @@ let _ =
     "stubgen [-ml|-c]";
   match !generate_ml, !generate_c with
   | false, false | true, true -> failwith "Exactly one of -ml and -c must be specified"
-  | true, false ->
+  | true, false               ->
     Cstubs.write_ml
       Format.std_formatter
       ~prefix
       (module Ffi_suitesparse_bindings.Bindings)
-  | false, true ->
+  | false, true               ->
     print_endline "#include <stdint.h>";
     print_endline "#include \"btf.h\"";
     print_endline "#include \"camd.h\"";
@@ -33,7 +33,4 @@ let _ =
     print_endline "#include \"ldl.h\"";
     print_endline "#include \"umfpack.h\"";
     print_endline "#include \"SuiteSparseQR_C.h\"";
-    Cstubs.write_c
-      Format.std_formatter
-      ~prefix
-      (module Ffi_suitesparse_bindings.Bindings)
+    Cstubs.write_c Format.std_formatter ~prefix (module Ffi_suitesparse_bindings.Bindings)

@@ -27,9 +27,7 @@ module Make (F : Cstubs.FOREIGN) = struct
 
   type cholmod_triplet
 
-  let cholmod_triplet : cholmod_triplet structure typ =
-    structure "cholmod_triplet_struct"
-
+  let cholmod_triplet : cholmod_triplet structure typ = structure "cholmod_triplet_struct"
 
   type descendant_score
 

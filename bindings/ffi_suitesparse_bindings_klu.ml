@@ -166,37 +166,25 @@ module Make (F : Cstubs.FOREIGN) = struct
   let klu_l_sort =
     foreign
       "klu_l_sort"
-      (ptr klu_l_symbolic
-      @-> ptr klu_l_numeric
-      @-> ptr klu_l_common
-      @-> returning int64_t)
+      (ptr klu_l_symbolic @-> ptr klu_l_numeric @-> ptr klu_l_common @-> returning int64_t)
 
 
   let klu_zl_sort =
     foreign
       "klu_zl_sort"
-      (ptr klu_l_symbolic
-      @-> ptr klu_l_numeric
-      @-> ptr klu_l_common
-      @-> returning int64_t)
+      (ptr klu_l_symbolic @-> ptr klu_l_numeric @-> ptr klu_l_common @-> returning int64_t)
 
 
   let klu_l_flops =
     foreign
       "klu_l_flops"
-      (ptr klu_l_symbolic
-      @-> ptr klu_l_numeric
-      @-> ptr klu_l_common
-      @-> returning int64_t)
+      (ptr klu_l_symbolic @-> ptr klu_l_numeric @-> ptr klu_l_common @-> returning int64_t)
 
 
   let klu_zl_flops =
     foreign
       "klu_zl_flops"
-      (ptr klu_l_symbolic
-      @-> ptr klu_l_numeric
-      @-> ptr klu_l_common
-      @-> returning int64_t)
+      (ptr klu_l_symbolic @-> ptr klu_l_numeric @-> ptr klu_l_common @-> returning int64_t)
 
 
   let klu_l_rgrowth =
@@ -248,19 +236,13 @@ module Make (F : Cstubs.FOREIGN) = struct
   let klu_l_rcond =
     foreign
       "klu_l_rcond"
-      (ptr klu_l_symbolic
-      @-> ptr klu_l_numeric
-      @-> ptr klu_l_common
-      @-> returning int64_t)
+      (ptr klu_l_symbolic @-> ptr klu_l_numeric @-> ptr klu_l_common @-> returning int64_t)
 
 
   let klu_zl_rcond =
     foreign
       "klu_zl_rcond"
-      (ptr klu_l_symbolic
-      @-> ptr klu_l_numeric
-      @-> ptr klu_l_common
-      @-> returning int64_t)
+      (ptr klu_l_symbolic @-> ptr klu_l_numeric @-> ptr klu_l_common @-> returning int64_t)
 
 
   let klu_l_scale =

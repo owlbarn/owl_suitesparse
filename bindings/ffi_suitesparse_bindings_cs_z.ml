@@ -42,9 +42,7 @@ module Make (F : Cstubs.FOREIGN) = struct
 
 
   let cs_cl_cholsol =
-    foreign
-      "cs_cl_cholsol"
-      (int64_t @-> ptr cs_cl @-> ptr complex64 @-> returning int64_t)
+    foreign "cs_cl_cholsol" (int64_t @-> ptr cs_cl @-> ptr complex64 @-> returning int64_t)
 
 
   let cs_cl_dupl = foreign "cs_cl_dupl" (ptr cs_cl @-> returning int64_t)

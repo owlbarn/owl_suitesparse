@@ -349,10 +349,7 @@ module Make (F : Cstubs.FOREIGN) = struct
   let cholmod_l_dense_to_sparse =
     foreign
       "cholmod_l_dense_to_sparse"
-      (ptr cholmod_dense
-      @-> int
-      @-> ptr cholmod_common
-      @-> returning (ptr cholmod_sparse))
+      (ptr cholmod_dense @-> int @-> ptr cholmod_common @-> returning (ptr cholmod_sparse))
 
 
   let cholmod_l_copy_dense =
